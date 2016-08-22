@@ -21,23 +21,17 @@ The simples approach taken is to assume that there is a service which retrieves 
 When the APIService makes and invocation , code is added to catch the exception (specifically a 401)
 and in the exception handler we retrieve a new token and then re-submit the APIService request.
 
-While this works it does require each instance of an APIService to be coded correctly...something not likely to be done consistently if there are more than a couple api clients.
+While this works it does require each instance of an APIService to be coded correctly...something not likely to be done consistently if there are more than a couple api clients.  Not ideal.
 
 #### Second Approach
 
 Another approach is to implement a 'filter' service which would wrap the call to the API Service.
 This would remove the 401 handler code into a service which would be reusable.
 
-Component
--filter
---APIService
---catch error
----retrieve token
----resubmit request
 
-This would have the drawback that the developer of the component needs to know of the filter service and the problem of token refresh.
+This would have the drawback that the developer of the component needs to know of the filter service and the problem of token refresh. Not ideal.
 
-#### Third approach (see branch approach3)
+#### Third approach (implemented on master branch)
 Another approach is to provide a wrapper around the http service that has the desired behaviour.
 
 Instead of an angular2 Http being injected into the service, a APIClientService is injected.
