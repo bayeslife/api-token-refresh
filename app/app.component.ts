@@ -7,7 +7,7 @@ import { APIData } from './apidata';
 
 @Component({
   selector: 'my-app',
-  template: 'Token: {{title}} <br/> API Data: {{apidata.name}}',
+  template: 'API Data: Name: {{apidata.name}}',
   providers: [APIService,APIClientService,TokenService]
 })
 export class AppComponent implements OnInit{
@@ -15,7 +15,6 @@ export class AppComponent implements OnInit{
   constructor(private apiService: APIService) {
   }
 
-  title = "Token Reference";
   apidata: APIData = new APIData();
 
   ngOnInit(): void {

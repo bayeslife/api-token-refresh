@@ -27,7 +27,7 @@ public get(url: string) : Promise<any> {
     })
     .catch(function(error){
       if(error.status==401){
-          return t.tokenService.getToken()
+          return t.tokenService.getToken(t.token)
             .then(function(tok){
               var headers = new Headers();
               headers.append('Authorization', tok );

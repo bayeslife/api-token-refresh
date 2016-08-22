@@ -18,8 +18,8 @@ constructor(private http: APIClientService){
 }
 
 /*
- * Here is the api which returns some data and can throw 401 expections to
- * indicate the token provided has expired.
+ * Here is the api which returns some data and note that there is no 401
+ * handling logic as that is inside the APIClientService implementation
 */
 getAPIData(): Promise<APIData> {
   let th=this;
